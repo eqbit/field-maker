@@ -1,0 +1,229 @@
+* {
+    box-sizing: border-box;
+}
+
+.select-input-container input{
+    cursor: pointer;
+}
+
+.select-options {
+    position: absolute;
+    top: 100%;
+    background: #fff;
+    width: 100%;
+    border: 1px solid #DFDFDF;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+    display: none;
+}
+
+.select-options__option {
+    padding: 0 15px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #212426;
+    background-color: #f7f7f7;
+}
+
+.select-options__option:hover {
+    background: rgba(12,77,162,0.1);
+}
+
+.select-input-arrow {
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-150%);
+    transition: .3s;
+}
+
+.select-input-arrow:after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg);
+    width: 8px;
+    height: 8px;
+    border: 3px solid rgba(0,0,0,0.5);
+    border-style: none solid solid none;
+}
+
+.triggered .select-input-arrow {
+    transform: rotateX(180deg) translateY(-50%);
+    z-index: 3;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
+
+.input-container input,
+.input-container textarea {
+    width: 100%;
+    height: 30px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #212426;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    border: solid 1px #d8d8d8;
+}
+
+.input-container textarea {
+    height: 150px;
+    resize: none;
+    padding: 15px;
+}
+
+.eq-input-item {
+    position: relative;
+}
+
+.eq-input-item + .eq-input-item {
+    margin-top: 15px;
+}
+
+.eq-input-label {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+input[type="submit"] {
+    border: 2px solid #DADADA;
+    padding: 8px 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+.select-input-plus img {
+    width: 100%;
+}
+
+.select-input-plus {
+    width: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+input[type="submit"]:hover {
+    background: lightgray;
+}
+
+.add-folder {
+    padding-top: 20px;
+    margin-top: 30px;
+    border-top: 2px solid #DADADA;
+}
+
+form.success input, form.success textarea {
+    background: rgba(7,247,7,.1);
+    transition: 1s;
+}
+
+input[type="text"],
+textarea {
+    transition: 2s ease-out;
+}
+
+input[type="text"].error,
+textarea.error {
+    background: red;
+    color: #fff;
+    transition: 0.001s;
+}
+
+.container {
+    display: flex;
+    width: 1200px;
+    max-width: 100%;
+}
+
+.container-block-forms {
+    width: 60%;
+}
+
+.container-block-text {
+    width: 35%;
+    margin-left: 5%;
+}
+
+.eq-input-line {
+    display: flex;
+    align-items: center;
+}
+
+.eq-input-line .input-container {
+    width: auto;
+    flex: 1;
+}
+
+.add-folder {
+    display: none;
+}
+
+.text-output-line {
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #DADADA;
+}
+
+.text-output-line + .text-output-line {
+    margin-top: 10px;
+}
+
+.hover-trigger {
+    position: relative;
+}
+
+.hover-trigger-target {
+    position: absolute;
+    top: 0px;
+    left: -54px;
+    width: max-content;
+    background: #FFF;
+    visibility: hidden;
+    opacity: 0;
+    transition: .05s;
+}
+
+.hover-trigger:hover .hover-trigger-target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hint {
+    padding: 30px;
+    border: 1px solid #DADADA;
+    width: fit-content;
+    position: absolute;
+    bottom: 200px;
+    right: 200px;
+    font-size: 14px;
+    text-transform: lowercase;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.hint.shown {
+    opacity: 1;
+}
+
+.hint.fade {
+    transition: 2s;
+    opacity: 0;
+}
