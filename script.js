@@ -48,7 +48,7 @@ function addField(form) {
             if(data.status == "success") {
                 form.find('[name=field-name]').val("");
                 form.find('[name=field-text]').val("");
-                log("Поле <span class='hover-trigger'>" + fieldName + "<span class='hover-trigger-target'><? __field('" + fieldName + "', '" + folderName + "'); ?></span></span> добавлено");
+                log("Поле <span class='hover-trigger'>" + fieldName + "<span class='hover-trigger-target'> __field('" + fieldName + "', '" + folderName + "'); </span></span> добавлено");
                 highlight(form, 'success');
                 curFieldName = fieldName;
             } else {
