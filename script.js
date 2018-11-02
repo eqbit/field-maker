@@ -34,6 +34,17 @@ function refreshFolders() {
     });
 }
 
+function checkOutputLength() {
+    var count = 0;
+    $("[data-text-output]").find(".text-output-line:visible").each(function () {
+        count++;
+    });
+
+    if(count > 20) {
+        $("[data-text-output]").find(".text-output-line:visible").first().hide();
+    }
+}
+
 function addField(form) {
     var curData = form.serialize() + "&action=add-field",
         fieldName = form.find('[name=field-name]').val(),
@@ -51,6 +62,10 @@ function addField(form) {
                 log("Поле <span class='hover-trigger'>" + fieldName + "<span class='hover-trigger-target'> __field('" + fieldName + "', '" + folderName + "'); </span></span> добавлено");
                 highlight(form, 'success');
                 curFieldName = fieldName;
+
+                checkOutputLength();
+
+
             } else {
                 highlight(form.find('[name=field-name]'), 'error');
                 log('Поле с таким именем уже существует в данной группе');
