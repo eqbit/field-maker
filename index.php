@@ -6,6 +6,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <title>Генератор полей</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
     <script src="script.js?v=<?= time(); ?>"></script>
     <link rel="stylesheet" href="style.css?v=<?= time(); ?>">
 </head>
@@ -34,7 +35,7 @@
                 <div class="eq-input-item">
                     <div class="eq-input-label">Текст поля:</div>
                     <div class="input-container">
-                        <textarea name="field-text" required></textarea>
+                        <textarea id="mainarea" name="field-text" required></textarea>
                     </div>
                 </div>
 

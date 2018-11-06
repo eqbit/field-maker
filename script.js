@@ -1,4 +1,4 @@
-var optionOpen = false
+var optionOpen = false;
 curFieldName = "";
 
 function hint(text) {
@@ -40,15 +40,30 @@ function checkOutputLength() {
         count++;
     });
 
-    if(count > 20) {
+    if (count > 20) {
         $("[data-text-output]").find(".text-output-line:visible").first().hide();
     }
+
 }
 
+$(document).ready(function () {
+
+    CKEDITOR.replace( 'mainarea' );
+    CKEDITOR.config.enterMode = CKEDITOR.ENTER_BR;
+
+});
+
 function addField(form) {
-    var curData = form.serialize() + "&action=add-field",
-        fieldName = form.find('[name=field-name]').val(),
+
+    var fieldName = form.find('[name=field-name]').val(),
         folderName = form.find('[name=folder-name]').val() ? form.find('[name=folder-name]').val() : 'common';
+
+    var curData = {
+            "action": "add-field",
+            "field-name": fieldName,
+            "field-text": CKEDITOR.instances.mainarea.getData(),
+            "folder-name": folderName
+        };
 
     $.ajax({
         type: "POST",
@@ -58,12 +73,13 @@ function addField(form) {
         success: function(data){
             if(data.status == "success") {
                 form.find('[name=field-name]').val("");
-                form.find('[name=field-text]').val("");
                 log("Поле <span class='hover-trigger'>" + fieldName + "<span class='hover-trigger-target'> __field('" + fieldName + "', '" + folderName + "'); </span></span> добавлено");
                 highlight(form, 'success');
                 curFieldName = fieldName;
 
                 checkOutputLength();
+
+                CKEDITOR.instances.mainarea.setData('')
 
 
             } else {
